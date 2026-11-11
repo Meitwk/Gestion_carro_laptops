@@ -12,7 +12,6 @@
 
     <div class="phone">
 
-        <!-- ENCABEZADO -->
         <header class="topbar">
 
             <svg class="brand-icon" viewBox="0 0 40 40">
@@ -27,7 +26,6 @@
 
         <main>
 
-            <!-- PANTALLA 1: INICIO -->
             <section id="inicio" class="screen active">
 
                 <div class="welcome">
@@ -88,10 +86,69 @@
 
                 </div>
 
+
+                <section class="dashboard-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-kicker">PANEL DE CONTROL</span>
+                            <h2>Resumen del equipamiento</h2>
+                        </div>
+                        <span class="dashboard-indicator"></span>
+                    </div>
+
+                    <div class="dashboard-stats">
+
+                        <article class="stat-card">
+                            <div class="stat-icon">▣</div>
+                            <strong id="dashboard-count">30</strong>
+                            <span>Equipos registrados</span>
+                        </article>
+
+                        <article class="stat-card warning-stat">
+                            <div class="stat-icon">!</div>
+                            <strong id="pending-count">0</strong>
+                            <span>Fallas reportadas</span>
+                        </article>
+
+                    </div>
+
+                    <div class="inventory-status">
+                        <span class="inventory-dot"></span>
+                        <div>
+                            <strong>Estado del carro</strong>
+                            <p id="dashboard-status">Disponible para retirar</p>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="activity-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-kicker">REGISTRO DEL SISTEMA</span>
+                            <h2>Actividad reciente</h2>
+                        </div>
+                        <span class="activity-label">Historial</span>
+                    </div>
+
+                    <div id="activity-list" class="activity-list">
+
+                        <div class="empty-activity">
+                            <span>◷</span>
+                            <p>Aún no hay movimientos registrados.</p>
+                            <small>Las actividades aparecerán aquí.</small>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
             </section>
 
 
-            <!-- PANTALLA 2: CARRO -->
             <section id="carro" class="screen">
 
                 <button class="back-button" onclick="showScreen('inicio')">
@@ -159,7 +216,6 @@
             </section>
 
 
-            <!-- PANTALLA 3: REPORTAR FALLAS -->
             <section id="fallas" class="screen">
 
                 <button class="back-button" onclick="showScreen('inicio')">
@@ -231,7 +287,6 @@
         </main>
 
 
-        <!-- NAVEGACIÓN INFERIOR -->
         <nav class="bottom-nav">
 
             <button class="nav-item active" data-screen="inicio" onclick="showScreen('inicio')">
@@ -263,7 +318,6 @@
     </div>
 
 
-    <!-- VENTANA DE CONFIRMACIÓN -->
     <div id="dialog-overlay" class="overlay" hidden>
 
         <div class="dialog">
