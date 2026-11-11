@@ -1,58 +1,145 @@
-let estado = "Disponible";
 
-function mostrarPantalla(idPantalla, idNav) {
-    // Ocultar todas las páginas
-    document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+// CAMBIAR ENTRE LAS TRES PANTALLAS
 
-    // Desactivar todos los botones de menú
-    document.querySelectorAll(".btn-nav").forEach(nav => nav.classList.remove("active"));
+function showScreen(screenName) {
 
-    // Activar pantalla seleccionada
-    const selectedPage = document.getElementById(`page-${idPantalla}`);
-    if (selectedPage) selectedPage.classList.add("active");
+    let screens = document.getElementsByClassName("screen");
 
-    // Activar ítems de navegación (Desktop y Mobile)
-    const navDesktop = document.getElementById(`nav-${idNav}`);
-    const navMobile = document.getElementById(`mob-${idNav}`);
-    if (navDesktop) navDesktop.classList.add("active");
-    if (navMobile) navMobile.classList.add("active");
+    for (let i = 0; i < screens.length; i++) {
+        screens[i].classList.remove("active");
+    }
+
+    document.getElementById(screenName).classList.add("active");
+
+    let navItems = document.getElementsByClassName("nav-item");
+
+    for (let i = 0; i < navItems.length; i++) {
+
+        navItems[i].classList.remove("active");
+
+        if (navItems[i].getAttribute("data-screen") == screenName) {
+            navItems[i].classList.add("active");
+        }
+
+    }
+
+    document.getElementById("report-message").textContent = "";
+
 }
 
-function cambiarEstado(nuevoEstado) {
-    estado = nuevoEstado;
-    document.querySelectorAll(".txt-estado").forEach(el => {
-        el.textContent = estado;
-    });
+
+// RETIRAR EL CARRO
+
+function openCarroAction(action) {
+
+    if (action == "retirar") {
+
+        document.getElementById("dialog-title").textContent =
+            "Retirar carro";
+
+        document.getElementById("dialog-content").innerHTML =
+            "<p>¿Confirmas que retirarás el carro de laptops CL-001?</p>";
+
+        document.getElementById("dialog-confirm").onclick = function () {
+
+            document.getElementById("home-status").textContent =
+                "Estado: En uso";
+
+            document.getElementById("cart-status").textContent =
+                "Estado: En uso";
+
+            closeDialog();
+
+            showScreen("carro");
+
+            alert("Retiro registrado correctamente.");
+
+        };
+
+        document.getElementById("dialog-overlay").hidden = false;
+
+    }
+
 }
 
-// Event Listeners seguros usando event delegation o verificación condicional
-document.addEventListener("DOMContentLoaded", () => {
-    // Menú PC
-    document.getElementById("nav-inicio")?.addEventListener("click", () => mostrarPantalla("inicio", "inicio"));
-    document.getElementById("nav-carro")?.addEventListener("click", () => mostrarPantalla("carro", "carro"));
-    document.getElementById("nav-fallas")?.addEventListener("click", () => mostrarPantalla("fallas", "fallas"));
 
-    // Menú Móvil
-    document.getElementById("mob-inicio")?.addEventListener("click", () => mostrarPantalla("inicio", "inicio"));
-    document.getElementById("mob-carro")?.addEventListener("click", () => mostrarPantalla("carro", "carro"));
-    document.getElementById("mob-fallas")?.addEventListener("click", () => mostrarPantalla("fallas", "fallas"));
+// DEVOLVER EL CARRO
 
-    // Botones de las tarjetas de Inicio
-    document.getElementById("btn-ir-carro")?.addEventListener("click", () => mostrarPantalla("carro", "carro"));
-    document.getElementById("btn-ir-fallas")?.addEventListener("click", () => mostrarPantalla("fallas", "fallas"));
+function openReturnDialog() {
 
-    // Botones "Volver"
-    document.getElementById("back-carro")?.addEventListener("click", () => mostrarPantalla("inicio", "inicio"));
-    document.getElementById("back-fallas")?.addEventListener("click", () => mostrarPantalla("inicio", "inicio"));
+    document.getElementById("dialog-title").textContent =
+        "Devolver carro";
 
-    // Botones de Retirar y Devolver (Fijar clic sobre el contenedor o sobre la imagen)
-    document.getElementById("btn-retirar")?.addEventListener("click", () => cambiarEstado("En Uso"));
-    document.getElementById("btn-devolver")?.addEventListener("click", () => cambiarEstado("Disponible"));
+    document.getElementById("dialog-content").innerHTML =
 
-    // Formulario
-    document.getElementById("form-falla")?.addEventListener("submit", (e) => {
-        e.preventDefault();
-        e.target.reset();
-        mostrarPantalla("inicio", "inicio");
-    });
+        '<p>Selecciona el estado de los equipos:</p>' +
+
+        '<label><input type="radio" name="estado" value="bueno" checked> Todos los equipos están en buen estado.</label>' +
+
+        '<label><input type="radio" name="estado" value="falla"> Hay equipos con fallas o daños.</label>';
+
+
+    document.getElementById("dialog-confirm").onclick = function () {
+
+        let selected = document.querySelector(
+            'input[name="estado"]:checked'
+        ).value;
+
+        closeDialog();
+
+        if (selected == "bueno") {
+
+            document.getElementById("home-status").textContent =
+                "Estado: Disponible";
+
+            document.getElementById("cart-status").textContent =
+                "Estado: Disponible";
+
+            alert("Devolución registrada. ¡Gracias!");
+
+        } else {
+
+            showScreen("fallas");
+
+            document.getElementById("tipo").focus();
+
+        }
+
+    };
+
+    document.getElementById("dialog-overlay").hidden = false;
+
+}
+
+
+// CERRAR VENTANA
+
+function closeDialog() {
+
+    document.getElementById("dialog-overlay").hidden = true;
+
+}
+
+
+// ENVIAR REPORTE DE FALLA
+
+document.getElementById("failure-form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let codigo = document.getElementById("codigo").value;
+
+    let tipo = document.getElementById("tipo").value;
+
+    let descripcion = document.getElementById("descripcion").value;
+
+
+    document.getElementById("report-message").textContent =
+
+        "Reporte registrado: " + codigo +
+        " — " + tipo + ". " + descripcion;
+
+
+    this.reset();
+
 });

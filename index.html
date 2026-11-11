@@ -10,170 +10,291 @@
 
 <body>
 
+    <div class="phone">
 
-    <aside class="sidebar">
-        <div class="logo">
-            <img src="static/img/ordenador-portatil (3).png" alt="Logo">
-            <h2>Gestión de Laptops</h2>
-        </div>
-        <nav class="menu-desktop">
-            <div id="nav-inicio" class="btn-nav active">
-                <img src="static/img/ordenador-portatil (3).png" alt="Inicio">
-                <span>Inicio</span>
-            </div>
-            <div id="nav-carro" class="btn-nav">
-                <img src="static/img/carrito-de-compras.png" alt="Carro">
-                <span>Carro</span>
-            </div>
-            <div id="nav-fallas" class="btn-nav">
-                <img src="static/img/advertencia.png" alt="Fallas">
-                <span>Fallas</span>
-            </div>
-        </nav>
-    </aside>
-
-
-    <div class="main-wrapper">
+        <!-- ENCABEZADO -->
         <header class="topbar">
-            <h1>Panel de Control</h1>
+
+            <svg class="brand-icon" viewBox="0 0 40 40">
+                <rect x="3" y="3" width="34" height="24" rx="1" fill="none" stroke="currentColor" stroke-width="3" />
+                <path d="M1 31h38l-4 5H5z" fill="currentColor" />
+                <rect x="15" y="31" width="10" height="2" fill="#399b98" />
+            </svg>
+
+            <span>Gestión de Laptops</span>
+
         </header>
 
-        <main class="content">
+        <main>
 
-            <section id="page-inicio" class="page active">
-                <div class="welcome-banner">
-                    <h2>Bienvenido, Profesor</h2>
-                    <p>Administra el carro de laptops y reporta fallas de manera rápida y sencilla.</p>
+            <!-- PANTALLA 1: INICIO -->
+            <section id="inicio" class="screen active">
+
+                <div class="welcome">
+                    <h1>Bienvenido, Profesor</h1>
+
+                    <p>
+                        Administra el carro de laptops y reporta fallas
+                        de manera rápida y sencilla
+                    </p>
                 </div>
 
-                <div class="home-grid">
-                    <div class="card">
-                        <div class="card-title">Carro de laptops</div>
-                        <div class="cart-box-body">
-                            <img src="static/img/portatiles.png" alt="Carro">
-                            <div class="info-text">
-                                <p><b>Código:</b> CL-001</p>
-                                <p><b>Cantidad:</b> 30 Equipos</p>
-                                <p><b>Estado:</b> <span class="txt-estado">Disponible</span></p>
-                            </div>
+                <article class="summary-card" onclick="showScreen('carro')">
+
+                    <h2>Carro de laptops</h2>
+
+                    <div class="summary-content">
+
+                        <div class="laptop-art">
+                            <img src="static/img/portatiles.png" alt="Carro de laptops">
                         </div>
+
+                        <div class="summary-data">
+
+                            <p><strong>Código:</strong> CL-001</p>
+
+                            <p>
+                                <strong>Cantidad:</strong>
+                                <span id="home-count">30</span> Equipos
+                            </p>
+
+                            <span class="status" id="home-status">
+                                Estado: Disponible
+                            </span>
+
+                        </div>
+
                     </div>
 
-                    <div id="btn-ir-carro" class="action-box">
-                        <img src="static/img/carrito-de-compras.png" alt="Retirar carro">
+                </article>
+
+                <div class="home-actions">
+
+                    <button class="action-tile" onclick="showScreen('carro')">
+
+                        <img src="static/img/carrito-de-compras.png" alt="carrito">
+
                         <span>Retirar carro</span>
-                    </div>
 
-                    <div id="btn-ir-fallas" class="action-box">
-                        <img src="static/img/advertencia.png" alt="Reportar falla">
+                    </button>
+
+                    <button class="action-tile" onclick="showScreen('fallas')">
+
+                        <img src="static/img/advertencia.png" alt="fallas">
+
                         <span>Reportar falla</span>
-                    </div>
+
+                    </button>
+
                 </div>
+
             </section>
 
 
-            <section id="page-carro" class="page">
-                <div id="back-carro" class="btn-volver">← Volver</div>
-                <h2 class="page-header-title">Carro de laptops</h2>
+            <!-- PANTALLA 2: CARRO -->
+            <section id="carro" class="screen">
 
-                <div class="carro-desktop-layout">
-                    <div class="card card-qr-info">
-                        <div class="qr-info-header">
-                            <img src="static/img/codigo-qr.png" alt="QR" class="qr-img">
-                            <div class="qr-details">
-                                <h3>Carro N.º 1: CI-001</h3>
-                                <p><b>Código:</b> CL-001</p>
-                                <p><b>Estado:</b> <span class="badge txt-estado">Disponible</span></p>
-                            </div>
-                        </div>
-                        <hr class="card-divider">
-                        <p class="txt-cantidad"><b>Cantidad:</b> 30 Equipos</p>
+                <button class="back-button" onclick="showScreen('inicio')">
+                    ← Volver
+                </button>
+
+                <h1 class="page-title">Carro de laptops</h1>
+
+                <article class="cart-card">
+
+                    <div class="qr-art">
+                        <img src="static/img/codigo-qr.png" alt="Código QR del carro CL-001">
                     </div>
 
-                    <div class="carro-actions-section">
-                        <h3>¿Qué necesitas hacer?</h3>
+                    <div class="cart-info">
 
-                        <div class="carro-buttons-grid">
-                            <div id="btn-retirar" class="btn-accion-card">
-                                <img src="static/img/caja (3).png" alt="Retirar">
-                                <div class="btn-accion-text">
-                                    <strong>Retirar carro</strong>
-                                    <p>Registrar que el profesor se lleva el carro</p>
-                                </div>
-                            </div>
+                        <h2>Carro N.º 1: CL-001</h2>
 
-                            <div id="btn-devolver" class="btn-accion-card">
-                                <img src="static/img/correcto (1).png" alt="Devolver">
-                                <div class="btn-accion-text">
-                                    <strong>Devolver carro</strong>
-                                    <p>Registrar la devolución y revisar los equipos</p>
-                                </div>
-                            </div>
-                        </div>
+                        <p><strong>Código:</strong> CL-001</p>
+
+                        <span class="status" id="cart-status">
+                            Estado: Disponible
+                        </span>
+
                     </div>
+
+                    <div class="cart-quantity">
+                        Cantidad:
+                        <span id="cart-count">30</span>
+                        Equipos
+                    </div>
+
+                </article>
+
+                <p class="question">¿Qué necesitas hacer?</p>
+
+                <div class="cart-actions">
+
+                    <button class="wide-action" onclick="openCarroAction('retirar')">
+
+                        <img class="action-image" src="static/img/caja%20(3).png" alt="Retirar carro">
+
+                        <strong>Retirar carro</strong>
+
+                        <small>
+                            Registrar que el profesor se lleva el carro
+                        </small>
+
+                    </button>
+
+                    <button class="wide-action" onclick="openReturnDialog()">
+
+                        <span class="action-symbol">↶</span>
+
+                        <strong>Devolver carro</strong>
+
+                        <small>
+                            Registrar la devolución y revisar los equipos
+                        </small>
+
+                    </button>
+
                 </div>
+
             </section>
 
-            <section id="page-fallas" class="page">
-                <div id="back-fallas" class="btn-volver">← Volver</div>
-                <h2 class="page-header-title">Reportar falla</h2>
 
-                <div class="fallas-desktop-container">
-                    <form id="form-falla" class="card form-card">
-                        <div class="card-title">Datos del equipo</div>
+            <!-- PANTALLA 3: REPORTAR FALLAS -->
+            <section id="fallas" class="screen">
 
-                        <div class="form-grid-pc">
-                            <div class="form-group">
-                                <label for="codigo">Código del carro / QR</label>
-                                <div class="input-qr-wrapper">
-                                    <input type="text" id="codigo" value="CL-001" required>
-                                    <img src="static/img/codigo-qr.png" alt="QR" class="input-qr-icon">
-                                </div>
-                            </div>
+                <button class="back-button" onclick="showScreen('inicio')">
+                    ← Volver
+                </button>
 
-                            <div class="form-group">
-                                <label for="problema">Tipo de problema</label>
-                                <select id="problema" required>
-                                    <option value="" disabled selected>Selecciona una opción</option>
-                                    <option value="pantalla">Pantalla dañada / No enciende</option>
-                                    <option value="teclado">Falla de teclado / Touchpad</option>
-                                    <option value="bateria">Problemas de batería / Carga</option>
-                                    <option value="software">Sistema operativo / Software</option>
-                                    <option value="otro">Otro tipo de falla</option>
-                                </select>
-                            </div>
+                <h1 class="page-title">Reportar falla</h1>
 
-                            <div class="form-group full-row">
-                                <label for="descripcion">Descripción del problema</label>
-                                <textarea id="descripcion" placeholder="Escribe aquí los detalles del problema..."
-                                    required></textarea>
-                            </div>
+                <form id="failure-form" class="failure-form">
+
+                    <div class="form-heading">
+
+                        <h2>Datos del equipo</h2>
+
+                        <label for="codigo">
+                            Código del carro / QR
+                        </label>
+
+                        <div class="code-field">
+
+                            <input id="codigo" type="text" placeholder="Escanea o ingresa el código" required>
+
+                            <img src="static/img/codigo-qr.png" alt="Escanear código QR">
+
                         </div>
 
-                        <button type="submit" class="btn-submit-pc">Enviar reporte</button>
-                    </form>
-                </div>
+                        <label for="tipo">
+                            Tipo de problema
+                        </label>
+
+                        <select id="tipo" required>
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option>Batería</option>
+                            <option>Pantalla</option>
+                            <option>Conexión</option>
+                            <option>Teclado o mouse</option>
+                            <option>Otro</option>
+
+                        </select>
+
+                        <label for="descripcion">
+                            Descripción del problema
+                        </label>
+
+                        <textarea id="descripcion" placeholder="Escribe aquí los detalles del problema..."
+                            required></textarea>
+
+                    </div>
+
+                    <div class="submit-wrap">
+
+                        <button class="submit-button" type="submit">
+                            Enviar reporte
+                        </button>
+
+                    </div>
+
+                    <p id="report-message" class="report-message" aria-live="polite">
+                    </p>
+
+                </form>
+
             </section>
 
         </main>
+
+
+        <!-- NAVEGACIÓN INFERIOR -->
+        <nav class="bottom-nav">
+
+            <button class="nav-item active" data-screen="inicio" onclick="showScreen('inicio')">
+
+                <img class="nav-icon-img" src="static/img/ordenador-portatil (3).png" alt="">
+
+                <span>Inicio</span>
+
+            </button>
+
+            <button class="nav-item" data-screen="carro" onclick="showScreen('carro')">
+
+                <img class="nav-icon-img" src="static/img/ordenador-portatil (3).png" alt="">
+
+                <span>Carro</span>
+
+            </button>
+
+            <button class="nav-item" data-screen="fallas" onclick="showScreen('fallas')">
+
+                <img class="nav-icon-img" src="static/img/advertencia.png" alt="">
+
+                <span>Fallas</span>
+
+            </button>
+
+        </nav>
+
     </div>
 
-    <nav class="nav-mobile">
-        <div id="mob-inicio" class="btn-nav active">
-            <img src="static/img/ordenador-portatil (3).png" alt="Inicio">
-            <span>Inicio</span>
+
+    <!-- VENTANA DE CONFIRMACIÓN -->
+    <div id="dialog-overlay" class="overlay" hidden>
+
+        <div class="dialog">
+
+            <button class="dialog-close" onclick="closeDialog()">
+                ×
+            </button>
+
+            <h2 id="dialog-title">Confirmar acción</h2>
+
+            <div id="dialog-content"></div>
+
+            <div class="dialog-buttons">
+
+                <button class="secondary-button" onclick="closeDialog()">
+                    Cancelar
+                </button>
+
+                <button class="primary-button" id="dialog-confirm">
+                    Confirmar
+                </button>
+
+            </div>
+
         </div>
-        <div id="mob-carro" class="btn-nav">
-            <img src="static/img/carrito-de-compras.png" alt="Carro">
-            <span>Carro</span>
-        </div>
-        <div id="mob-fallas" class="btn-nav">
-            <img src="static/img/advertencia.png" alt="Fallas">
-            <span>Fallas</span>
-        </div>
-    </nav>
+
+    </div>
+
 
     <script src="static/js/script.js"></script>
+
 </body>
 
 </html>

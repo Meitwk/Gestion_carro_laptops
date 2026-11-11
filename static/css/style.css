@@ -1,428 +1,515 @@
-:root {
-    --bg-main: #b8d4d1;
-    --header-bg: #2b938e;
-    --card-bg: #9ec1be;
-    --button-bg: #6aa8a1;
-    --button-hover: #53918a;
-    --text-dark: #0f3532;
-    --border-color: #3b706b;
-}
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-dark);
-    display: flex;
+    margin: 0;
     min-height: 100vh;
+    background: #e8eeee;
+    color: #123f3e;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* --- SIDEBAR (PC) --- */
-.sidebar {
-    width: 240px;
-    background-color: var(--header-bg);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
+/* MARCO VERTICAL DEL CELULAR */
+.phone {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #bdd3d1;
+    position: relative;
+    padding-bottom: 70px;
+    overflow: hidden;
 }
 
-.sidebar .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.sidebar .logo img {
-    width: 32px;
-    height: 32px;
-}
-
-.sidebar .logo h2 {
-    font-size: 1.1rem;
-}
-
-.menu-desktop {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-}
-
-.menu-desktop .btn-nav {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 20px;
-    cursor: pointer;
-    color: white;
-    opacity: 0.8;
-    font-size: 0.95rem;
-    transition: 0.2s;
-}
-
-.menu-desktop .btn-nav.active,
-.menu-desktop .btn-nav:hover {
-    opacity: 1;
-    background-color: var(--button-bg);
-    font-weight: 600;
-}
-
-.menu-desktop .btn-nav img {
-    width: 22px;
-    height: 22px;
-}
-
-/* --- ESTRUCTURA GENERAL --- */
-.main-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
+/* ENCABEZADO */
 .topbar {
-    background-color: var(--header-bg);
-    color: white;
-    padding: 18px 25px;
+    height: 53px;
+    background: #399b98;
+    color: #d7eeee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 8px;
+    font-size: 13px;
 }
 
-.topbar h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
+.brand-icon {
+    width: 31px;
+    height: 31px;
+    color: #8ed0d4;
 }
 
-.content {
-    padding: 25px;
-    flex: 1;
+main {
+    min-height: calc(100vh - 123px);
 }
 
-.page {
+/* PANTALLAS */
+.screen {
     display: none;
+    padding: 12px 8px 20px;
 }
 
-.page.active {
+.screen.active {
     display: block;
 }
 
-.page-header-title {
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-bottom: 15px;
+/* INICIO */
+.welcome {
+    text-align: center;
+    padding: 12px 0 55px;
 }
 
-.btn-volver {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.95rem;
-    font-weight: 700;
+.welcome h1 {
+    margin: 0 0 5px;
+    font-size: 19px;
+}
+
+.welcome p {
+    margin: 0;
+    color: #286b6b;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+/* TARJETA DEL CARRO */
+.summary-card {
+    border: 1px solid #247d7c;
+    border-radius: 6px;
+    padding: 8px;
+    min-height: 148px;
     cursor: pointer;
-    margin-bottom: 12px;
 }
 
-/* --- PÁGINA 1: INICIO --- */
-.welcome-banner {
-    margin-bottom: 20px;
+.summary-card h2 {
+    margin: 0 0 8px;
+    font-size: 13px;
 }
 
-.welcome-banner h2 {
-    font-size: 1.4rem;
-    font-weight: 800;
-    margin-bottom: 4px;
-}
-
-.home-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 15px;
-}
-
-.card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 18px;
-}
-
-.card-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.cart-box-body {
+.summary-content {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
-.cart-box-body img {
-    width: 75px;
-    height: 75px;
+.laptop-art {
+    width: 42%;
+    flex-shrink: 0;
 }
 
-.action-box {
-    background-color: var(--button-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
+.laptop-art img {
+    width: 100%;
+    display: block;
+}
+
+.summary-data {
+    font-size: 12px;
+}
+
+.summary-data p {
+    margin: 2px 0;
+}
+
+/* ESTADO */
+.status {
+    display: inline-block;
+    background: #80b9b4;
+    border-radius: 12px;
+    padding: 2px 5px;
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* BOTONES DE INICIO */
+.home-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 18px;
+    padding: 22px 8px 0;
+}
+
+.action-tile {
+    width: 100px;
+    height: 100px;
+    border: 0;
+    border-radius: 12px;
+    background: #80b9b4;
+    color: #164d4e;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    padding: 20px;
+    gap: 2px;
+    font-size: 12px;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-.action-box:hover {
-    background-color: var(--button-hover);
+.action-tile img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
 }
 
-.action-box img {
-    width: 65px;
-    height: 65px;
-}
-
-/* --- PÁGINA 2: CARRO (PC) --- */
-.carro-desktop-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 900px;
-}
-
-.card-qr-info {
-    width: 100%;
-}
-
-.qr-info-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.qr-img {
-    width: 80px;
-    height: 80px;
-}
-
-.qr-details h3 {
-    font-size: 1.1rem;
-    font-weight: 800;
-    margin-bottom: 4px;
-}
-
-.qr-details p {
-    font-size: 0.9rem;
-    margin-bottom: 3px;
-}
-
-.badge {
-    display: inline-block;
-    background-color: #7cb8b0;
-    border: 1px solid var(--border-color);
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.card-divider {
-    border: none;
-    border-top: 1px solid var(--border-color);
-    margin: 12px 0;
-}
-
-.carro-actions-section h3 {
-    font-size: 1.05rem;
-    margin-bottom: 12px;
-}
-
-.carro-buttons-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.btn-accion-card {
-    background-color: var(--button-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-accion-card:hover {
-    background-color: var(--button-hover);
-}
-
-.btn-accion-card img {
-    width: 42px;
-    height: 42px;
-}
-
-.btn-accion-text strong {
-    display: block;
-    font-size: 1.05rem;
-    color: white;
-    margin-bottom: 2px;
-}
-
-.btn-accion-text p {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* --- PÁGINA 3: FALLAS (PC) --- */
-.fallas-desktop-container {
-    max-width: 800px;
-}
-
-.form-card {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-grid-pc {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.form-group.full-row {
-    grid-column: span 2;
-}
-
-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.input-qr-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.input-qr-icon {
-    position: absolute;
-    right: 10px;
-    width: 22px;
-    height: 22px;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+/* BOTÓN VOLVER */
+.back-button {
+    border: 0;
     background: transparent;
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    outline: none;
+    color: #123f3e;
+    font-size: 16px;
+    padding: 0;
+    margin: 0 0 10px;
+    cursor: pointer;
 }
 
-textarea {
-    height: 110px;
+/* TÍTULOS */
+.page-title {
+    font-size: 19px;
+    margin: 0 0 14px;
+}
+
+/* TARJETA CARRO */
+.cart-card {
+    border: 1px solid #247d7c;
+    border-radius: 6px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    column-gap: 12px;
+    align-items: center;
+}
+
+.qr-art img {
+    width: 90px;
+    height: 90px;
+    display: block;
+    object-fit: contain;
+}
+
+.cart-info h2 {
+    font-size: 15px;
+    margin: 0 0 10px;
+}
+
+.cart-info p {
+    font-size: 12px;
+    margin: 0 0 8px;
+}
+
+.cart-info .status {
+    margin-top: 0;
+}
+
+.cart-quantity {
+    grid-column: 1 / -1;
+    border-top: 1px solid #438c88;
+    margin-top: 8px;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.question {
+    margin: 13px 12px;
+    font-size: 15px;
+}
+
+/* BOTONES RETIRAR Y DEVOLVER */
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 0 8px;
+}
+
+.wide-action {
+    min-height: 80px;
+    border: 0;
+    border-radius: 12px;
+    background: #80b9b4;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 7px;
+}
+
+.wide-action strong {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.wide-action small {
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.action-symbol {
+    font-size: 26px;
+    line-height: 24px;
+}
+
+/* FORMULARIO DE FALLAS */
+.failure-form {
+    border: 1px solid #247d7c;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.form-heading {
+    padding: 5px 8px 10px;
+}
+
+.form-heading h2 {
+    margin: 0 0 5px;
+    font-size: 14px;
+}
+
+.form-heading label {
+    display: block;
+    font-size: 10px;
+    margin: 8px 3px 4px;
+}
+
+.form-heading input,
+.form-heading select,
+.form-heading textarea {
+    width: 100%;
+    border: 1px solid #438c88;
+    border-radius: 6px;
+    background: transparent;
+    color: #286b6b;
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.form-heading input::placeholder,
+.form-heading textarea::placeholder {
+    color: #438c88;
+    opacity: 1;
+}
+
+/* CAMPO DEL CÓDIGO QR */
+.code-field {
+    position: relative;
+}
+
+.code-field input {
+    padding-right: 38px;
+}
+
+.code-field img {
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* DESCRIPCIÓN */
+.form-heading textarea {
+    height: 118px;
     resize: vertical;
 }
 
-.btn-submit-pc {
-    width: 100%;
-    background-color: var(--header-bg);
-    color: white;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 14px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 5px;
+/* BOTÓN ENVIAR */
+.submit-wrap {
+    border-top: 1px solid #438c88;
+    padding: 8px 16px;
 }
 
-.nav-mobile {
+.submit-button {
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+    background: #399b98;
+    color: white;
+    padding: 9px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.report-message {
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* NAVEGACIÓN INFERIOR */
+.bottom-nav {
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #80b9b4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-item {
+    border: 0;
+    background: transparent;
+    color: #174d4e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 65px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.nav-icon-img {
+    width: 31px;
+    height: 31px;
+    object-fit: contain;
+}
+
+/* VENTANA DE CONFIRMACIÓN */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.48);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    z-index: 10;
+}
+
+.overlay[hidden] {
     display: none;
 }
 
-/* --- RESPONSIVE MÓVIL (< 768px) --- */
-@media (max-width: 768px) {
+.dialog {
+    width: 100%;
+    max-width: 350px;
+    background: #e0eeee;
+    border: 1px solid #399b98;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    color: #123f3e;
+}
+
+.dialog h2 {
+    font-size: 18px;
+    margin: 0 25px 12px 0;
+}
+
+.dialog p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.dialog-close {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    border: 0;
+    background: transparent;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.primary-button,
+.secondary-button {
+    border: 0;
+    border-radius: 6px;
+    padding: 9px 12px;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #399b98;
+    color: white;
+}
+
+.secondary-button {
+    background: #a9c9c6;
+    color: #123f3e;
+}
+
+.dialog label {
+    display: block;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+/* VISTA EN PC: CELULAR CENTRADO */
+@media (min-width: 500px) {
+
     body {
-        flex-direction: column;
+        padding: 24px 0;
     }
 
-    .sidebar {
-        display: none;
+    .phone {
+        width: 360px;
+        min-height: 780px;
+        border: 7px solid #263c40;
+        border-radius: 28px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
     }
 
-    .topbar {
-        text-align: center;
-        padding: 12px;
+    .bottom-nav {
+        border-radius: 0 0 20px 20px;
     }
 
-    .content {
-        padding: 15px;
-        padding-bottom: 75px;
-    }
+}
 
-    .home-grid,
-    .carro-buttons-grid,
-    .form-grid-pc {
-        grid-template-columns: 1fr;
-    }
 
-    .form-group.full-row {
-        grid-column: span 1;
-    }
+/* MEJORAR VISIBILIDAD DE LAS IMÁGENES */
 
-    .nav-mobile {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        z-index: 100;
-    }
+/* Imagen del carro en Inicio */
+.laptop-art img {
+    filter: brightness(0) saturate(100%)
+    invert(22%) sepia(25%) saturate(1200%)
+    hue-rotate(145deg) brightness(85%) contrast(100%);
+}
 
-    .nav-mobile .btn-nav {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 8px;
-        color: white;
-        cursor: pointer;
-        opacity: 0.6;
-        font-size: 0.75rem;
-    }
+/* Iconos de los botones de Inicio */
+.action-tile img {
+    filter: brightness(0) saturate(100%)
+    invert(22%) sepia(25%) saturate(1200%)
+    hue-rotate(145deg) brightness(85%) contrast(100%);
+}
 
-    .nav-mobile .btn-nav img {
-        width: 24px;
-        height: 24px;
-    }
+/* Iconos de navegación inferior */
+.nav-icon-img {
+    filter: brightness(0) saturate(100%)
+    invert(22%) sepia(25%) saturate(1200%)
+    hue-rotate(145deg) brightness(85%) contrast(100%);
+}
 
-    .nav-mobile .btn-nav.active {
-        opacity: 1;
-        font-weight: bold;
-    }
+/* Mantener el QR oscuro y legible */
+.qr-art img {
+    filter: contrast(115%);
+}
+
+/* Icono para escanear */
+.code-field img {
+    filter: brightness(0) saturate(100%)
+    invert(17%) sepia(35%) saturate(1000%)
+    hue-rotate(145deg) brightness(80%);
+}
+
+.action-image {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    margin-bottom: 3px;
+    filter: brightness(0) invert(1);
 }
